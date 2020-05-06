@@ -1,0 +1,14 @@
+This is the structure of my input file:
+1. Layers of the structure
+2. Two manual inputs, or however many the user wants depending on the size of the first layer
+3. This line determines whether the weights inputted are "manual" or "random"
+4. The first layer (kj) of manually inputted weights
+5. The second layer (ji) of manually inputted weights
+6. The error threshold value
+7. The value for lambda
+8. The value that lambda changes by (lambda adapt)
+9. How many iterations the program is allowed to run before stopping
+10. The minimum value for the initial random weights
+11. The maximum value for the initial random weights
+12. How many test cases there are
+13-n. The test case inputs
