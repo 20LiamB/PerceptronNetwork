@@ -74,10 +74,10 @@ public class Perceptron
     */
    private void readFile(String fileName) throws Exception
    {
-      File file = new File(fileName); //Creates a file BufferedReader
+      File file = new File(fileName);                             //Creates a file BufferedReader
       BufferedReader br = new BufferedReader(new FileReader(file));
 
-      String line = br.readLine();   //Reads and assigns layers to the layers variables
+      String line = br.readLine();                                //Reads and assigns layers to the layers variables
       String[] layerInputs = line.split(" ");
       layers = new int[layerInputs.length];
       numLayers = layers.length;
@@ -94,9 +94,9 @@ public class Perceptron
       outputLayerSize = layers[outputLayer];
       hiddenActivationSize = layers[outputLayer-1];
 
-      br.readLine();  //Skips the lign for the manual input
+      br.readLine();                                              //Skips the lign for the manual input
 
-      weights = new double[outputLayer][][];  //Reads and assigns weights to the weights local variable
+      weights = new double[outputLayer][][];                      //Reads and assigns weights to the weights local variable
       deltas = new double[outputLayer][][];
       line = br.readLine();
       if (line.equals("manual"))
@@ -125,31 +125,31 @@ public class Perceptron
             deltas[layerCounter] = new double[layers[layerCounter]][layers[layerCounter+1]];
          }
 
-         br.readLine(); //skips the lines of manual weights
+         br.readLine();                                              //skips the lines of manual weights
          br.readLine();
       } //else if (line.equals("random"))
 
 
-      errorThreshold = Double.parseDouble(br.readLine()); //Sets the error threshold of the network
+      errorThreshold = Double.parseDouble(br.readLine());            //Sets the error threshold of the network
 
-      lambda = Double.parseDouble(br.readLine()); //Set lambda multiplier of the delta
+      lambda = Double.parseDouble(br.readLine());                    //Set lambda multiplier of the delta
 
-      lambdaAdaptUp = Double.parseDouble(br.readLine()); //Sets the lambda adaption in the up direction
+      lambdaAdaptUp = Double.parseDouble(br.readLine());             //Sets the lambda adaption in the up direction
 
-      lambdaAdaptDown = Double.parseDouble(br.readLine()); //Sets the lambda adaption in the down direction
+      lambdaAdaptDown = Double.parseDouble(br.readLine());           //Sets the lambda adaption in the down direction
 
-      iterations = Integer.parseInt(br.readLine()); //Sets the iterations for optimizing the weights
+      iterations = Integer.parseInt(br.readLine());                  //Sets the iterations for optimizing the weights
 
-      minWeights = Double.parseDouble(br.readLine()); //Sets the max value for a weight
+      minWeights = Double.parseDouble(br.readLine());                //Sets the max value for a weight
 
-      maxWeights = Double.parseDouble(br.readLine()); //Sets the minimum value for a weight
+      maxWeights = Double.parseDouble(br.readLine());                //Sets the minimum value for a weight
 
-      numCases = Integer.parseInt(br.readLine()); //Sets the number of test cases
+      numCases = Integer.parseInt(br.readLine());                    //Sets the number of test cases
 
-      expectedValue = new double[numCases][layers[0]][]; //sets to however many test cases there are
+      expectedValue = new double[numCases][layers[0]][];             //sets to however many test cases there are
 
 
-      for (int counter = 0; counter < numCases; counter++) //populates the expectedValue array with the test case
+      for (int counter = 0; counter < numCases; counter++)           //populates the array with the test case
       {
          line = br.readLine();
          String[] testCaseInputs = line.split(" ");
@@ -205,7 +205,7 @@ public class Perceptron
       }
 
 
-      for (int l = 0; l < numLayers - 1; l++)  // Goes over all the layers and for each calculate the next activation
+      for (int l = 0; l < numLayers - 1; l++)      // Goes over all the layers; for each calculate the next activation
       {
          calculateTheNexActivation(l);
       }
